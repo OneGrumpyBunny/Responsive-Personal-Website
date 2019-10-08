@@ -11,6 +11,7 @@ function sendEmail (name,email,message) {
     type: "get",
     data: data,
     success: function() {
+      $("#sent").show();
       console.log("email sent!");
     }
 	});
@@ -23,6 +24,18 @@ function sendEmail (name,email,message) {
 
   $(window).load(function(){
     $('.preloader').fadeOut(1000); // set duration in brackets    
+    
+    $("#blog .section-btn").each(function( obj, value ) {
+      if (obj > 0) {
+        $(this).height($("#blog .section-btn:eq(0)").height());
+      }
+    });
+
+    $(".service-thumb").each(function( obj, value ) {
+      if (obj < 3) {
+        $(this).height($(".service-thumb:eq(3)").height());
+      }
+    });
   });
 
 
@@ -97,17 +110,6 @@ function sendEmail (name,email,message) {
     blog buttons
   -------------------------------------------------------------------------------*/
 
-    $("#blog .section-btn").each(function( obj, value ) {
-      if (obj > 0) {
-        $(this).height($("#blog .section-btn:eq(0)").height());
-      }
-    });
-
-    $(".service-thumb").each(function( obj, value ) {
-      if (obj < 3) {
-        $(this).height($(".service-thumb:eq(3)").height());
-      }
-    });
 
     $("input[type=submit]").click(function() {
       if ($("input[name=fullname]").val() != "" && $("input[name=email]").val() != "" && $("textarea[name=message]").val() != "") {
@@ -118,6 +120,7 @@ function sendEmail (name,email,message) {
     });
 
     $("input").keyup(function() {
+      $("#sent").hide();
       $("#validate").hide();
     })
   });
