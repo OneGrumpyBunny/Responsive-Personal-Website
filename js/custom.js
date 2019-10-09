@@ -4,11 +4,11 @@ ajax form submitter
 ---------------------------------------------------------------------------------*/
 
 function sendEmail (name,email,message) {
-  var data = {name: name, email: email, message: message};
-  console.log("sending email: " + name + " | " + email + " | " + message);
+  var data = {name: name, email: email, message: message, submit: "submit"};
+  console.log("Sending email ..." );
 	$.ajax({
-    url:"../act_mail.php",
-    type: "get",
+    url:"act_mail.php",
+    type: "POST",
     data: data,
     success: function() {
       $("#sent").show();
@@ -16,8 +16,8 @@ function sendEmail (name,email,message) {
       $("input[name=email]").val("");
       $("textarea[name=message]").val("");
       console.log("email sent!");
-      
     }
+    
 	});
     return false;
 }
@@ -115,8 +115,9 @@ function sendEmail (name,email,message) {
   -------------------------------------------------------------------------------*/
 
 
-    $("input[type=submit]").click(function() {
+    $("input[name=submit]").click(function() {
       if ($("input[name=fullname]").val() != "" && $("input[name=email]").val() != "" && $("textarea[name=message]").val() != "") {
+        console.log("Preparing to send email ... ");
         return sendEmail($("input[name=fullname]").val(),$("input[name=email]").val(),$("textarea[name=message]").val());
       } else {
         $("#validate").show();

@@ -2,10 +2,10 @@
 
 <?php
 
-$fullname = filter_var($_GET["fullname"], FILTER_SANITIZE_STRING);
-$email = filter_var($_GET["email"], FILTER_SANITIZE_STRING);
-$message = filter_var($_GET["message"], FILTER_SANITIZE_STRING);
-$submit = filter_var($_GET["submit"], FILTER_SANITIZE_STRING);
+$fullname = filter_var($_POST["fullname"], FILTER_SANITIZE_STRING);
+$email = filter_var($_POST["email"], FILTER_SANITIZE_STRING);
+$message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
+$submit = filter_var($_POST["submit"], FILTER_SANITIZE_STRING);
 /* was the submit button pressed and do we have a valid email address */
 echo substr_count($email,".")." | ".substr_count($email, '@')." | ".strlen($submit);
 

@@ -625,7 +625,7 @@ a:hover, a:active, a:focus {
   height: 45px;
 }
 
-#contact input[type="submit"] {
+#contact input[type="submit"], #contact input[type="button"] {
   background: #ffffff;
   border: 2px solid transparent;
   border-radius: 40px;
@@ -633,7 +633,7 @@ a:hover, a:active, a:focus {
   padding-bottom: 10px;
 }
 
-#contact input[type="submit"]:hover {
+#contact input[type="submit"]:hover, #contact input[type="button"]:hover  {
   background: transparent;
   border-color: #ffffff;
   color: #ffffff;
