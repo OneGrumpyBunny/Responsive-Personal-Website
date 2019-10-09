@@ -12,7 +12,11 @@ function sendEmail (name,email,message) {
     data: data,
     success: function() {
       $("#sent").show();
+      $("input[name=fullname]").val("");
+      $("input[name=email]").val("");
+      $("textarea[name=message]").val("");
       console.log("email sent!");
+      
     }
 	});
     return false;
