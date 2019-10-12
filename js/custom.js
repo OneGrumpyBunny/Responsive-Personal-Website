@@ -143,6 +143,7 @@ function sendEmail (name,email,message) {
       }
     });
 
+    $("#blog h3:eq(1)").css("height",$("#blog h3:eq(0)").outerHeight());
   })
 
 
