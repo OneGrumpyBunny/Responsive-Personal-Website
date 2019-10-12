@@ -568,8 +568,6 @@ a:hover, a:active, a:focus {
   box-shadow: 2px 2px 5px #161616;
   text-transform: none;
   padding: 12px;
-  display: flex;
-  flex-direction: column;
   /* margin-left: 15px; */
 }
 
@@ -586,12 +584,10 @@ a:hover, a:active, a:focus {
     margin: 0 auto;
     font-weight: 400;
     font-size: 24px;
-    flex: 1 1 50%;
 }
 
 #blog p {
   color: #161616;
-  flex: 0 1 50%;
 }
 
 @media only screen and (min-width: 315px) {
@@ -610,9 +606,6 @@ a:hover, a:active, a:focus {
 @media only screen and (min-width: 1024px) {
   #blog .section-btn {
     margin:0;
-  }
-  #blog p {
-    flex: 0 1 47%;
   }
 } 
 
