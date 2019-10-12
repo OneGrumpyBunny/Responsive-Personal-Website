@@ -147,6 +147,18 @@ p {
   margin: 0;
 }
 
+@media only screen and (min-width: 768px) {
+  #home .container,
+  #whatIDo .container, 
+  #experience .container,
+  #service .container,
+  #education .container,
+  #contact .container,
+  #blog .container {
+    padding: 0 0 0 15px;
+  }
+}
+
 #experience .experience-thumb,
 #education .education-thumb  {
   /* padding: 22px 42px 42px 42px; */
@@ -543,35 +555,64 @@ a:hover, a:active, a:focus {
 
 
 #blog .section-btn {
-  background: #ffffff;
+  /* background: #ffffff;
   margin: 12px 0px 12px 15px;
   border: 3px solid #232B2B;
   border-radius: 20px;
   color: #232B2B;
   transition: all 0.4s ease-in-out;
   text-transform: uppercase;
+  font-size: 10px; */
+  background: rgba(255,255,255,.9);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #161616;
+  text-transform: none;
   padding: 12px;
-  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 15px; */
 }
 
 #blog .section-btn:hover {
-  background: rgbs(255,255,255,.8);
-  color: #fff !important;
-  border-color: transparent;
+  background: rgb(255,255,255);
   cursor:pointer;
 }
 
 #blog h3 {
   /*width: 80%; */
     text-align: center;
-    color: #161616;
-    padding: 2rem;
+    color: #6F527F;
+    padding: 1rem;
     margin: 0 auto;
+    font-weight: 400;
+    font-size: 24px;
+    flex: 1 1 50%;
 }
 
+#blog p {
+  color: #161616;
+  flex: 0 1 50%;
+}
+
+@media only screen and (min-width: 315px) {
+  #blog .section-btn {
+    margin-left: 15px;
+    margin-top:0;
+  }
+}
 @media only screen and (min-width: 768px) {
   #blog .section-btn {
-    /* padding: 12px 36px; */
+    margin-top: 15px;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #blog .section-btn {
+    margin:0;
+  }
+  #blog p {
+    flex: 0 1 47%;
   }
 } 
 
