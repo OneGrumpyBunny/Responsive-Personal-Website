@@ -129,6 +129,15 @@ function sendEmail (name,email,message) {
       $("#sent").hide();
       $("#validate").hide();
     })
+
+    $("#resume").click(function() {
+        $("#invalid").hide();
+        if (prompt("Please enter the passcode to access this document. If you do not have a passcode, please request one using the contact form at the bottom of the page.") == "2d38@49sd25df8!@") {
+          window.location = "http://www.cherylvelez.com/cheryl-velez-resume.pdf";
+        } else {
+          $("#invalid").show();
+        }
+    });
   });
 
   $(window).resize(function() {
