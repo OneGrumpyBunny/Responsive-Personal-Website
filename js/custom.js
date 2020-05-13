@@ -41,6 +41,20 @@ function sendEmail (name,email,message) {
       }
     });
     $("#blog h3:eq(1)").css("height",$("#blog h3:eq(0)").outerHeight());
+
+    // do the same for projects section
+    $("#projects .section-btn").each(function( obj, value ) {
+      if (obj > 0) {
+        $(this).height($("#projects .section-btn:eq(0)").height());
+      }
+    });
+
+    $(".service-thumb").each(function( obj, value ) {
+      if (obj < 3) {
+        $(this).height($(".service-thumb:eq(3)").height());
+      }
+    });
+    $("#projects h3:eq(1)").css("height",$("#projects h3:eq(0)").outerHeight());
   });
 
 
@@ -132,7 +146,7 @@ function sendEmail (name,email,message) {
 
     $("#resume").click(function() {
         $("#invalid").hide();
-        if (prompt("Please enter the passcode to access this document. If you do not have a passcode, please request one using the contact form at the bottom of the page.") == "2d38@49sd25df8!@") {
+        if (prompt("Hello! Thank you for requesting a copy of my resume. This prompt is here to keep the bots out. To access my resume, please enter the passcode: 2d38s49.") == "2d38s49") {
           window.location = "http://www.cherylvelez.com/cheryl-velez-resume.pdf";
         } else {
           $("#invalid").show();
@@ -153,6 +167,21 @@ function sendEmail (name,email,message) {
     });
 
     $("#blog h3:eq(1)").css("height",$("#blog h3:eq(0)").outerHeight());
+
+    // do the same for projects section
+
+    $("#projects .section-btn").each(function( obj, value ) {
+      if (obj > 0) {
+        $(this).height($("#projects .section-btn:eq(0)").height());
+      }
+    });
+    $(".service-thumb").each(function( obj, value ) {
+      if (obj < 3) {
+        $(this).height($(".service-thumb:eq(3)").height());
+      }
+    });
+
+    $("#projects h3:eq(1)").css("height",$("#projects h3:eq(0)").outerHeight());
   })
 
 
