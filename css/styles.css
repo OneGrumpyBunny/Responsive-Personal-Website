@@ -142,7 +142,8 @@ p {
 #education .container,
 #contact .container,
 #blog .container,
-#projects .container {
+#projects .container,
+#sideProjects .container {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -156,7 +157,8 @@ p {
   #education .container,
   #contact .container,
   #blog .container,
-  #projects .container {
+  #projects .container,
+  #sideProjects .container {
     padding: 0 0 0 15px;
   }
 }
@@ -170,6 +172,7 @@ p {
 #service,
 #blog,
 #projects,
+#sideProjects,
 footer {
   text-align: center;
 }
@@ -564,6 +567,99 @@ color: #161616;
   margin:0;
 }
 } 
+
+
+/*---------------------------------------
+    Side Projects section              
+-----------------------------------------*/
+
+#sideProjects {
+  background: url('../images/projects-bg.jpg') 50% 0 repeat-y fixed;
+  background-size: cover;
+  background-position: center center;
+  color: #ffffff;
+  position: relative;
+  padding: 50px 0px;
+}
+
+#sideProjects .overlay {
+  background: #121212;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0.1;
+}
+
+#sideProjects .fab {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+#sideProjects a {
+font-weight: 400;
+}
+
+
+#sideProjects .section-btn {
+/* background: #ffffff;
+margin: 12px 0px 12px 15px;
+border: 3px solid #232B2B;
+border-radius: 20px;
+color: #232B2B;
+transition: all 0.4s ease-in-out;
+text-transform: uppercase;
+font-size: 10px; */
+background: rgba(255,255,255,.9);
+border-radius: 5px;
+box-shadow: 2px 2px 5px #161616;
+text-transform: none;
+padding: 12px;
+min-height: 250px;
+/* margin-left: 15px; */
+}
+
+#sideProjects .section-btn:hover {
+background: rgb(255,255,255);
+/* cursor:pointer; */
+}
+
+#sideProjects h1 {
+  color: #161616;
+}
+#sideProjects h3 {
+/*width: 80%; */
+  text-align: center;
+  color: #6F527F;
+  padding: 1rem;
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+#sideProjects p {
+color: #161616;
+}
+
+@media only screen and (min-width: 315px) {
+#sideProjects .section-btn {
+  margin-left: 15px;
+  margin-top:0;
+}
+}
+@media only screen and (min-width: 768px) {
+#sideProjects .section-btn {
+  margin-top: 15px;
+  margin-left: 0;
+}
+}
+
+@media only screen and (min-width: 1024px) {
+#sideProjects .section-btn {
+  margin:0;
+}
+} 
+
 
 /*---------------------------------------
     Experience section              
