@@ -175,6 +175,13 @@ function sendEmail (name,email,message) {
         $(this).height($("#projects .section-btn:eq(0)").height());
       }
     });
+    
+    $("#sideProjects .section-btn").each(function( obj, value ) {
+      if (obj > 0) {
+        $(this).height($("#sideProjects .section-btn:eq(1)").height());
+      }
+    });
+
     $(".service-thumb").each(function( obj, value ) {
       if (obj < 3) {
         $(this).height($(".service-thumb:eq(3)").height());
@@ -182,6 +189,7 @@ function sendEmail (name,email,message) {
     });
 
     $("#projects h3:eq(1)").css("height",$("#projects h3:eq(0)").outerHeight());
+    
   })
 
 
