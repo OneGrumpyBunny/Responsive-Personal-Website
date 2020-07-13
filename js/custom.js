@@ -177,9 +177,9 @@ function sendEmail (name,email,message) {
     });
     
     $("#sideProjects .section-btn").each(function( obj, value ) {
-      if (obj > 0) {
-        $(this).height($("#sideProjects .section-btn:eq(1)").height());
-      }
+      
+        $(this).height($("#sideProjects .section-btn:eq(2)").height());
+      
     });
 
     $(".service-thumb").each(function( obj, value ) {
