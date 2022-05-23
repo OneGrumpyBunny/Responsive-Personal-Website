@@ -1,195 +1,24 @@
-
-/* --------------------------------------------------------------------------------
-ajax form submitter
----------------------------------------------------------------------------------*/
-
-function sendEmail (name,email,message) {
-  var data = {name: name, email: email, message: message, submit: "submit"};
-  console.log("Sending email ..." );
-	$.ajax({
-    url:"act_mail.php",
-    type: "POST",
-    data: data,
-    success: function() {
-      $("#sent").show();
-      $("input[name=fullname]").val("");
-      $("input[name=email]").val("");
-      $("textarea[name=message]").val("");
-      console.log("email sent!");
-    }
-    
-	});
-    return false;
-}
-
-  /*-------------------------------------------------------------------------------
-    PRE LOADER
-  -------------------------------------------------------------------------------*/
-
-  $(window).load(function(){
-    $('.preloader').fadeOut(1000); // set duration in brackets    
-    
-    $("#blog .section-btn").each(function( obj, value ) {
-      if (obj > 0) {
-        $(this).height($("#blog .section-btn:eq(0)").height());
-      }
-    });
-
-    $(".service-thumb").each(function( obj, value ) {
-      if (obj < 3) {
-        $(this).height($(".service-thumb:eq(3)").height());
-      }
-    });
-    $("#blog h3:eq(1)").css("height",$("#blog h3:eq(0)").outerHeight());
-
-    // do the same for projects section
-    $("#projects .section-btn").each(function( obj, value ) {
-      if (obj > 0) {
-        $(this).height($("#projects .section-btn:eq(0)").height());
-      }
-    });
-
-    $(".service-thumb").each(function( obj, value ) {
-      if (obj < 3) {
-        $(this).height($(".service-thumb:eq(3)").height());
-      }
-    });
-    $("#projects h3:eq(1)").css("height",$("#projects h3:eq(0)").outerHeight());
-  });
-
-
-
-  /* HTML document is loaded. DOM is ready. 
-  -------------------------------------------*/
-
-  $(document).ready(function() {
-
-
-  /*-------------------------------------------------------------------------------
-    Navigation - Hide mobile menu after clicking on a link
-  -------------------------------------------------------------------------------*/
-
-    $('.navbar-collapse a').click(function(){
-        $(".navbar-collapse").collapse('hide');
-    });
-
-
-    $(window).scroll(function() {
-    if ($(".navbar").offset().top > 50) {
-        $(".navbar-fixed-top").addClass("top-nav-collapse");
-    } else {
-        $(".navbar-fixed-top").removeClass("top-nav-collapse");
-    }
-  });
-
-
-
-  /*-------------------------------------------------------------------------------
-    jQuery Parallax
-  -------------------------------------------------------------------------------*/
-
-    function initParallax() {
-    $('#home').parallax("100%", 0.1);
-    $('#about').parallax("100%", 0.3);
-    $('#service').parallax("100%", 0.2);
-    $('#experience').parallax("100%", 0.3);
-    $('#education').parallax("100%", 0.1);
-    $('#quotes').parallax("100%", 0.3);
-    $('#contact').parallax("100%", 0.1);
-    $('footer').parallax("100%", 0.2);
-
+function displayImg() {
+    /* define images in array */
+    var imgArr = ["https://lh4.ggpht.com/J2RFnjMILHewWkPYutx5H2yzlvce5K3uOJgdX5ZiJDvHnqiyLQPr6xufGtGDaabYt75KBZXxSFx_i5fG6ZvUGH8=s320-c-rj-v1-e365","https://lh3.googleusercontent.com/6b0B42zJXvVUEs3MCtIlmtl3v3cxcLbMJEQecQ61GpcfWKp3Nd4l_IOT3pgyIegoMyR2jtqfRQF_4hwLOQ_o=s320-c-rj-v1-e365", "https://lh3.googleusercontent.com/_xAWA8LmyCfkh4pJegi1DHy_gG3egbhRTxe7M5t6ID-0lCrepeGi8yQAdI4wNWxqM4HyEbR-2iyVgxKEJ56rMQ=s320-c-rj-v1-e365","https://lh3.googleusercontent.com/Sz5gGKy0rLtoERqhmO7ImYdlbv6VDBvCNelo3Q_2ZhAoKyfJHCawoPzKK9_Z3h1Mkn3Nt3dHeiNgbFx-cxlGdg=s320-c-rj-v1-e365"];
+    /* pull a random number from 0 to length of array*/
+    var ranNum = Math.floor((Math.random() * imgArr.length-1) + 1);
+    /* select the image at the random number location in array */
+    var thisURL = imgArr[ranNum];
+  
+    /* define fade in / fade out based on image(s) current state */
+    if ($("#photo0").is(":visible")) { 
+      $("#photo0").fadeOut(3000); 
+      $("#photo1").attr("src",thisURL); 
+      $("#photo1").fadeIn(3000);
+    } else if ($("#photo1").is(":visible")){
+      $("#photo1").fadeOut(3000); 
+      $("#photo0").attr("src",thisURL);
+      $("#photo0").fadeIn(3000); 
+    }  
   }
-  initParallax();
-
-
-
-  /*-------------------------------------------------------------------------------
-    smoothScroll js
-  -------------------------------------------------------------------------------*/
   
-    $(function() {
-        $('.custom-navbar a, #home a').bind('click', function(event) {
-            var $anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top - 49
-            }, 1000);
-            event.preventDefault();
-        });
-    });
-  
-
-
-  /*-------------------------------------------------------------------------------
-    wow js - Animation js
-  -------------------------------------------------------------------------------*/
-
-  new WOW({ mobile: false }).init();
-
-  /*-------------------------------------------------------------------------------
-    blog buttons
-  -------------------------------------------------------------------------------*/
-
-
-    $("input[name=submit]").click(function() {
-      if ($("input[name=fullname]").val() != "" && $("input[name=email]").val() != "" && $("textarea[name=message]").val() != "") {
-        console.log("Preparing to send email ... ");
-        return sendEmail($("input[name=fullname]").val(),$("input[name=email]").val(),$("textarea[name=message]").val());
-      } else {
-        $("#validate").show();
-      }
-    });
-
-    $("input").keyup(function() {
-      $("#sent").hide();
-      $("#validate").hide();
-    })
-
-    $("#resume").click(function() {
-        $("#invalid").hide();
-        if (prompt("Hello! Thank you for requesting a copy of my resume. This prompt is here to keep the bots out. To access my resume, please enter the passcode: 2d38s49.") == "2d38s49") {
-          window.location = "http://www.cherylvelez.com/cheryl-velez-resume.pdf";
-        } else {
-          $("#invalid").show();
-        }
-    });
+  $(document).ready(function() {
+    displayImg();
+    setInterval(displayImg,5500);
   });
-
-  $(window).resize(function() {
-    $("#blog .section-btn").each(function( obj, value ) {
-      if (obj > 0) {
-        $(this).height($("#blog .section-btn:eq(0)").height());
-      }
-    });
-    $(".service-thumb").each(function( obj, value ) {
-      if (obj < 3) {
-        $(this).height($(".service-thumb:eq(3)").height());
-      }
-    });
-
-    $("#blog h3:eq(1)").css("height",$("#blog h3:eq(0)").outerHeight());
-
-    // do the same for projects section
-
-    $("#projects .section-btn").each(function( obj, value ) {
-      if (obj > 0) {
-        $(this).height($("#projects .section-btn:eq(0)").height());
-      }
-    });
-    
-    $("#sideProjects .section-btn").each(function( obj, value ) {
-      
-        $(this).height($("#sideProjects .section-btn:eq(2)").height());
-      
-    });
-
-    $(".service-thumb").each(function( obj, value ) {
-      if (obj < 3) {
-        $(this).height($(".service-thumb:eq(3)").height());
-      }
-    });
-
-    $("#projects h3:eq(1)").css("height",$("#projects h3:eq(0)").outerHeight());
-    
-  })
-
-
